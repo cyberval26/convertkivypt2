@@ -1,0 +1,36 @@
+<HistoryScreen>:
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: ('20dp', '20dp', '20dp', '20dp')
+
+        MDIconButton:
+            icon: "arrow-left"
+            user_font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            pos_hint: {"center_x": .04, "center_y": .5}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "home"
+
+        ScrollView:
+            do_scroll_x: True
+            # do_scroll_y: True
+            # bar_pos_x: 'bottom'
+            MDGridLayout:
+                id: grid_layout
+                cols: 3
+                size_hint_y: None
+                # size_hint_x: 1000
+                width: 1000
+                height: self.minimum_height if self.minimum_height > root.height else root.height
+
+                MDLabel:
+                    text: 'Timestamp'
+                    
+                MDLabel:
+                    text: 'Plate'
+                    
+                MDLabel:
+                    text: 'Image'
